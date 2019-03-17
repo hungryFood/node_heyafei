@@ -1,0 +1,17 @@
+
+<% if(page_cont > 0){ %>
+  <ul class="pagination small">              
+      <li class="page-item <%= start == 1 ? 'disabled' : '' %>">
+        <a class="page-link" href="<%= '/admin/'+api_name+'?dataName='+dataName+'&rule='+rule+'&q='+q+'&start='+(start-1)+'&count='+count %>">上一页</a>
+      </li>
+      <% for(var i=1;i<=page_cont;i++){ %>
+          <li class="page-item <%= start == i ? 'active' : '' %>">
+              <a class="page-link" href="<%= '/admin/'+api_name+'?dataName='+dataName+'&rule='+rule+'&q='+q+'&start='+i+'&count='+count %>"><%= i %></a>
+            </li>
+          <% } %>     
+      <li class="page-item <%= start == page_cont ? 'disabled' : '' %>" >
+        <a class="page-link" href="<%= '/admin/'+api_name+'?dataName='+dataName+'&rule='+rule+'&q='+q+'&start='+(start+1)+'&count='+count %>">下一页</a>
+      </li>  
+  </ul>
+<% } %>
+
